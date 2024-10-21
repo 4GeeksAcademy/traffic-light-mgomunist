@@ -7,8 +7,15 @@ const TrafficLight = () => {
 
     // Devuelve un color violeta específico
     const generateRandomViolet = () => {
-        return '#8A2BE2'; 
+        return '#8A2BE2'; // Púrpura/violeta
     }
+
+    // Función para alternar el color del semáforo.
+    const cycleColors = () => {
+        const currentIndex = lightColors.indexOf(activeLight);
+        const nextIndex = (currentIndex + 1) % lightColors.length; // Cíclico
+        setActiveLight(lightColors[nextIndex]);
+    };
 
     return (
         <div className="d-flex flex-column justify-content-center align-items-center">
@@ -32,18 +39,24 @@ const TrafficLight = () => {
                 }
             </div>
 
-            {/* Botón para agregar un color */}
+            {/* Botón para agregar color */}
             <button className="btn btn-primary mt-3" onClick={() => {
                 if (lightColors.length < 4) {
                     setLightColors([ ...lightColors, generateRandomViolet() ]);
                 }
             }}>
-                Add Colour
+                Agregar
+            </button>
+
+            {/* Botón para alternar */}
+            <button className="btn btn-secondary mt-3" onClick={cycleColors}>
+                Alternar colores
             </button>
         </div>
     )
 }
 
 export default TrafficLight;
+
 
 
