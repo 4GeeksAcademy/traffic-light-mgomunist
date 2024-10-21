@@ -7,7 +7,7 @@ const TrafficLight = () => {
 
     // Devuelve un color violeta específico
     const generateRandomViolet = () => {
-        return '#8A2BE2'; // Este es un código hexadecimal para un tono violeta
+        return '#8A2BE2'; 
     }
 
     return (
